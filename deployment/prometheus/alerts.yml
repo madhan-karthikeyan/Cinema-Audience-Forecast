@@ -1,0 +1,56 @@
+groups:
+  - name: forecast_inference
+    rules:
+      - alert: HighPredictionLatency
+        expr: histogram_quantile(0.95, forecast_prediction_latency_seconds) > 30
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High prediction latency detected"
+          description: "P95 prediction latency is above 30s for 5 minutes"
+
+      - alert: EnsembleDegraded
+        expr: rate(forecast_ensemble_fallback_total[10m]) > 0.1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Ensemble prediction degraded"
+          description: "Fallback rate above 0.1/s for 5 minutes"
+
+      - alert: FeatureDriftDetected
+        expr: forecast_feature_drift_ks_statistic > 0.15
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Feature drift detected"
+          description: "KS statistic above 0.15 for 30 minutes"
+
+      - alert: CacheHitRatioLow
+        expr: forecast_cache_hit_ratio < 0.5
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low cache hit ratio"
+          description: "Cache hit ratio below 50% for 10 minutes"
+
+      - alert: BatchNotRunning
+        expr: time() - forecast_last_batch_timestamp_seconds > 90000
+        for: 1h
+        labels:
+          severity: critical
+        annotations:
+          summary: "Batch prediction not running"
+          description: "No successful batch prediction in 25+ hours"
+
+      - alert: HighErrorRate
+        expr: rate(forecast_requests_total{status="5xx"}[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate"
+          description: "5xx error rate above 5% for 5 minutes"

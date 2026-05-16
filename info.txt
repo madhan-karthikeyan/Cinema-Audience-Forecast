@@ -1,0 +1,22 @@
+Dataset Description
+In this competition, you are provided with a time-series forecasting problem centered around cinema audience attendance. The data comes from two separate booking platforms:
+
+BookNow: an online booking and aggregation platform where users can search theatres and book tickets in advance.
+
+CinePOS: a point-of-sale (POS) system installed at theaters that tracks on-site ticket sales.
+
+Files
+cinePOS_theaters.csv – CinePOS theatre info
+booknow_theaters.csv – BookNow theatre info
+movie_theater_id_relation.csv – Mapping between BookNow and CinePOS theatres.
+cinePOS_booking.csv – CinePOS bookings
+booknow_booking.csv – BookNow bookings
+booknow_visits.csv – Daily audience counts
+date_info.csv – Calendar info
+sample_submission.csv – Submission format (ID = book_theater_id + show_date, audience_count).
+Notes
+Audience counts can be influenced by holidays, weekends, theatre type, and booking trends.
+The dataset is anonymized; latitude and longitude are approximate values.
+Use both POS and online booking patterns to forecast future theatre audiences.
+Some theatres may be closed on certain days, leading to zero audiences. Such days are included in the dataset but are ignored in final scoring.
+

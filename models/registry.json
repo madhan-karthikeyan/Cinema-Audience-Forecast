@@ -1,0 +1,72 @@
+{
+  "models": [
+    {
+      "name": "lightgbm",
+      "version": "1.0.0",
+      "path": "lightgbm/model_v1.0.0.txt",
+      "metrics": {
+        "rmse": 21.6,
+        "r2": 0.54
+      },
+      "params": {
+        "learning_rate": 0.05,
+        "num_leaves": 21,
+        "min_child_samples": 30,
+        "feature_fraction": 0.7,
+        "bagging_fraction": 0.7,
+        "lambda_l1": 0.1,
+        "lambda_l2": 0.1,
+        "min_split_gain": 0.0,
+        "objective": "tweedie",
+        "tweedie_variance_power": 1.2
+      },
+      "created_at": "2024-01-15T10:00:00Z",
+      "checksum": "",
+      "active": true
+    },
+    {
+      "name": "xgboost",
+      "version": "1.0.0",
+      "path": "xgboost/model_v1.0.0.json",
+      "metrics": {
+        "rmse": 22.3,
+        "r2": 0.51
+      },
+      "params": {
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "n_estimators": 500,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "reg_alpha": 0.1,
+        "reg_lambda": 0.1,
+        "objective": "reg:tweedie",
+        "tweedie_variance_power": 1.2
+      },
+      "created_at": "2024-01-15T10:00:00Z",
+      "checksum": "",
+      "active": true
+    },
+    {
+      "name": "catboost",
+      "version": "1.0.0",
+      "path": "catboost/model_v1.0.0.cbm",
+      "metrics": {
+        "rmse": 22.8,
+        "r2": 0.49
+      },
+      "params": {
+        "learning_rate": 0.05,
+        "depth": 6,
+        "iterations": 500,
+        "l2_leaf_reg": 3.0,
+        "border_count": 128,
+        "loss_function": "Tweedie",
+        "tweedie_variance_power": 1.2
+      },
+      "created_at": "2024-01-15T10:00:00Z",
+      "checksum": "",
+      "active": true
+    }
+  ]
+}

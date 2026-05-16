@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "feature_names": [
+    "lag_7", "lag_14", "lag_21", "lag_28",
+    "rolling_mean_7", "rolling_mean_14", "rolling_mean_28",
+    "rolling_std_7",
+    "day_of_week", "is_weekend", "month", "day",
+    "dow_sin", "dow_cos", "month_sin", "month_cos",
+    "tickets_sold_daily", "tickets_booked_daily",
+    "theater_type_standard", "theater_type_premium",
+    "theater_area", "week_of_year"
+  ],
+  "feature_dtypes": {
+    "lag_7": "float64",
+    "lag_14": "float64",
+    "lag_21": "float64",
+    "lag_28": "float64",
+    "rolling_mean_7": "float64",
+    "rolling_mean_14": "float64",
+    "rolling_mean_28": "float64",
+    "rolling_std_7": "float64",
+    "day_of_week": "int32",
+    "is_weekend": "int32",
+    "month": "int32",
+    "day": "int32",
+    "dow_sin": "float64",
+    "dow_cos": "float64",
+    "month_sin": "float64",
+    "month_cos": "float64",
+    "tickets_sold_daily": "float64",
+    "tickets_booked_daily": "float64",
+    "theater_type_standard": "int32",
+    "theater_type_premium": "int32",
+    "theater_area": "float64",
+    "week_of_year": "int32"
+  },
+  "cold_start_defaults": {
+    "lag_7": 25.0,
+    "lag_14": 25.0,
+    "lag_21": 25.0,
+    "lag_28": 25.0,
+    "rolling_mean_7": 25.0,
+    "rolling_mean_14": 25.0,
+    "rolling_mean_28": 25.0,
+    "rolling_std_7": 15.0
+  },
+  "target_column": "audience_count",
+  "training_metrics": {
+    "rmse": 21.6,
+    "r2": 0.54
+  }
+}
